@@ -8,7 +8,7 @@ namespace _2DRPGMap
 {
     class Program
     {
-        static char[,] map = new char[,] // dimensions defined by following data:
+        static char[,] map = new char[12,30] // dimensions defined by following data:
     {
         {'^','^','^','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\''},
         {'^','^','\'','\'','\'','\'','*','*','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','~','~','~','\'','\'','\''},
@@ -25,14 +25,16 @@ namespace _2DRPGMap
     };
         static void DisplayMap()
         {
-           
+            
         }
 
 
 
         static void Main(string[] args)
         {
+            DisplayMap();
 
+            Console.ReadKey(true);
         }
     }
 }
