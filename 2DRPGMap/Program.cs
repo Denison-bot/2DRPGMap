@@ -8,8 +8,9 @@ namespace _2DRPGMap
 {
     class Program
     {
+
         static char[,] map = new char[12,30] // dimensions defined by following data:
-    {
+        {
         {'^','^','^','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\''},
         {'^','^','\'','\'','\'','\'','*','*','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','~','~','~','\'','\'','\''},
         {'^','^','\'','\'','\'','*','*','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','~','~','~','\'','\'','\'','\'','\''},
@@ -22,16 +23,49 @@ namespace _2DRPGMap
         {'\'','\'','\'','\'','\'','\'','\'','~','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\''},
         {'\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\''},
         {'\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\''},
-    };
+        };
+
         static void DisplayMap()
         {
-            
+            int rows = map.GetLength(0);
+            int cols = map.GetLength(1);
+            for (int y = 0; y < rows; y++)
+            {
+                for (int x = 0; x < cols; x++)
+                {
+                    char element = map[y, x];
+                    Console.Write(element);
+                }
+                Console.WriteLine();
+            }
         }
 
+        static void DisplayScaledMap(int scale)
+        {
+            int rows = map.GetLength(0);
+            int cols = map.GetLength(1);
 
+            for (int y = 0; y < rows; y++)
+            {
+                for (int x = 0; x < cols; x++)
+                {
+                    char element = map[y, x];
+                    Console.Write(element);
+                }
+                
+                Console.WriteLine();
+            }
+        }
 
         static void Main(string[] args)
         {
+            Console.WriteLine("map legend:");
+            Console.WriteLine("^ = mountain");
+            Console.WriteLine("' = grass");
+            Console.WriteLine("~ = water");
+            Console.WriteLine("* = trees");
+            Console.WriteLine();
+
             DisplayMap();
 
             Console.ReadKey(true);
