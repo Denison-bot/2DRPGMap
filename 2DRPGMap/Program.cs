@@ -40,20 +40,31 @@ namespace _2DRPGMap
             }
         }
 
-        static void DisplayScaledMap(int scale)
+        
+
+        static void DisplayMap(int scale)
         {
             int rows = map.GetLength(0);
             int cols = map.GetLength(1);
+            //Console.SetWindowSize(cols, rows);
+            //Console.SetBufferSize(cols, rows);
 
             for (int y = 0; y < rows; y++)
             {
-                for (int x = 0; x < cols; x++)
+                for (int a = 0; a < scale; a++)
                 {
-                    char element = map[y, x];
-                    Console.Write(element);
-                }
-                
-                Console.WriteLine();
+                    for (int x = 0; x < cols; x++)
+                    {
+                        for (int b = 0; b < scale; b++)
+                        {
+                            {
+                                char element = map[y, x];
+                                Console.Write(element);
+                            }
+                        }
+                    }
+                    Console.WriteLine();
+                }     
             }
         }
 
@@ -66,8 +77,12 @@ namespace _2DRPGMap
             Console.WriteLine("* = trees");
             Console.WriteLine();
 
-            DisplayMap();
+            //DisplayMap();
 
+            DisplayMap(9);
+
+            //DisplayMap(7);
+            
             Console.ReadKey(true);
         }
     }
