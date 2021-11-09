@@ -8,6 +8,9 @@ namespace _2DRPGMap
 {
     class Program
     {
+        static int rows;
+        static int cols;
+        static int scale;
 
         static char[,] map = new char[12,30] // dimensions defined by following data:
         {
@@ -27,8 +30,16 @@ namespace _2DRPGMap
 
         static void DisplayMap()
         {
-            int rows = map.GetLength(0);
-            int cols = map.GetLength(1);
+            rows = map.GetLength(0);
+            cols = map.GetLength(1);
+
+
+            //for (int d = 0; d < cols; d++)
+            //{
+            //    Console.Write("-");                
+            //}
+            //Console.WriteLine();
+            
             for (int y = 0; y < rows; y++)
             {
                 for (int x = 0; x < cols; x++)
@@ -38,16 +49,29 @@ namespace _2DRPGMap
                 }
                 Console.WriteLine();
             }
+
+            //for (int e = 0; e < cols; e++)
+            //{
+            //    Console.Write("-");
+            //}
         }
 
         
 
         static void DisplayMap(int scale)
         {
-            int rows = map.GetLength(0);
-            int cols = map.GetLength(1);
-            //Console.SetWindowSize(cols, rows);
-            //Console.SetBufferSize(cols, rows);
+            rows = map.GetLength(0);
+            cols = map.GetLength(1);
+            
+            Console.SetWindowSize((cols * scale), (rows * scale));
+            Console.SetBufferSize((cols * scale), (rows * scale));
+
+            //Console.WriteLine("+");
+            //for (int c = 0; c < rows; c++)
+            //{
+            //    Console.Write("­­­­­­a");
+            //}
+
 
             for (int y = 0; y < rows; y++)
             {
@@ -57,19 +81,23 @@ namespace _2DRPGMap
                     {
                         for (int b = 0; b < scale; b++)
                         {
-                            {
+                            {                                
                                 char element = map[y, x];
                                 Console.Write(element);
                             }
                         }
                     }
-                    Console.WriteLine();
                 }     
             }
         }
 
+
         static void Main(string[] args)
         {
+            
+            //set map scale
+            scale = 3;
+
             Console.WriteLine("map legend:");
             Console.WriteLine("^ = mountain");
             Console.WriteLine("' = grass");
@@ -77,12 +105,14 @@ namespace _2DRPGMap
             Console.WriteLine("* = trees");
             Console.WriteLine();
 
-            //DisplayMap();
+            Console.ReadKey(true);
 
-            DisplayMap(9);
+            DisplayMap();
 
-            //DisplayMap(7);
-            
+            Console.ReadKey(true);
+
+            DisplayMap(scale);
+
             Console.ReadKey(true);
         }
     }
