@@ -52,7 +52,7 @@ namespace _2DRPGMap
             }
         }
 
-        static void DisplayMap()
+        static void DisplayMapStatic()
         {
             
 
@@ -78,7 +78,7 @@ namespace _2DRPGMap
             Console.WriteLine();
         }
         
-        static void DisplayMap(int scale)
+        static void DisplayMapScaled(int scale)
         {
             rows = map.GetLength(0);
             cols = map.GetLength(1);
@@ -126,11 +126,11 @@ namespace _2DRPGMap
 
             Console.ReadKey(true);
 
-            DisplayMap();
+            DisplayMapStatic();
 
             Console.ReadKey(true);
 
-            DisplayMap(scale);
+            DisplayMapScaled(scale);
 
             Console.ReadKey(true);
         }
