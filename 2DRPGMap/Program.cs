@@ -121,6 +121,11 @@ namespace _2DRPGMap
             Console.WriteLine("* = trees");
             Console.WriteLine();
 
+            Console.WriteLine("Open in full screen for best view");
+            Console.WriteLine();
+            Console.WriteLine("Press any key to display maps");
+            Console.WriteLine();
+
             Console.ReadKey(true);
 
             DisplayMapStatic();
