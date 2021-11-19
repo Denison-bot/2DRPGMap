@@ -28,7 +28,7 @@ namespace _2DRPGMap
         {'\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\'','\''},
         };
 
-        static void Colors(int y, int x)
+        static void SetColor(int y, int x)
         {
             if (map[x, y] == '\'')
             {
@@ -54,8 +54,6 @@ namespace _2DRPGMap
 
         static void DisplayMapStatic()
         {
-            
-
             rows = map.GetLength(0);
             cols = map.GetLength(1);
 
@@ -66,7 +64,7 @@ namespace _2DRPGMap
                 Console.Write("│");
                 for (int x = 0; x < cols; x++)
                 {
-                    Colors(x, y);
+                    SetColor(x, y);
                     char element = map[y, x];
                     Console.Write(element);
                     Console.ResetColor();
@@ -76,10 +74,12 @@ namespace _2DRPGMap
             }
             Console.Write("└" + new string('─', cols) + "┘");
             Console.WriteLine();
+            Console.ReadKey(true);
         }
         
         static void DisplayMapScaled(int scale)
         {
+            Console.Clear();
             rows = map.GetLength(0);
             cols = map.GetLength(1);
             
@@ -98,7 +98,7 @@ namespace _2DRPGMap
                         for (int b = 0; b < scale; b++) //scale
                         {
                             {
-                                Colors(x, y);
+                                SetColor(x, y);
                                 char element = map[y, x];
                                 Console.Write(element);
                                 Console.ResetColor();
@@ -109,14 +109,11 @@ namespace _2DRPGMap
                 }               
             }
             Console.Write("└" + new string('─', cols * scale) + "┘");
+            Console.ReadKey(true);
         }
 
         static void Main(string[] args)
         {
-            
-            //set map scale
-            scale = 3;
-
             Console.WriteLine("map legend:");
             Console.WriteLine("^ = mountain");
             Console.WriteLine("' = grass");
@@ -127,12 +124,10 @@ namespace _2DRPGMap
             Console.ReadKey(true);
 
             DisplayMapStatic();
-
-            Console.ReadKey(true);
-
-            DisplayMapScaled(scale);
-
-            Console.ReadKey(true);
+            DisplayMapScaled(2);
+            DisplayMapScaled(3);
+            DisplayMapScaled(4);
+            DisplayMapScaled(5);
         }
     }
 }
